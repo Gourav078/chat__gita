@@ -275,6 +275,10 @@ def retry_with_backoff(func, *args, max_retries=3, initial_wait=1, **kwargs):
                 raise e
     raise Exception("Max retries exceeded.")
 
+@app.get("/")
+def read_root():
+    return {"message": "Hello"}
+
 @app.post("/ask")
 def ask_gita(query: QueryRequest):
     try:
